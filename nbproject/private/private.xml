@@ -4,6 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Ravic/OneDrive/Documents/NetBeansProjects/SunriseDentalClinic/src/sunrisedentalclinic/SunriseDentalClinic.java</file>
+            <file>file:/C:/Users/Ravic/OneDrive/Documents/NetBeansProjects/SunriseDentalClinic/src/util/DBconnection.java</file>
+            <file>file:/C:/Users/Ravic/OneDrive/Documents/NetBeansProjects/SunriseDentalClinic/src/model/UserDAO.java</file>
+            <file>file:/C:/Users/Ravic/OneDrive/Documents/NetBeansProjects/SunriseDentalClinic/src/model/User.java</file>
         </group>
     </open-files>
 </project-private>
