@@ -17,6 +17,16 @@ public class DashboardView extends javax.swing.JFrame {
      */
     public DashboardView() {
         initComponents();
+        
+        // Populate Dentist Dropdown
+        cmbDentist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { 
+            "Select a Dentist", "Dr. Smith", "Dr. Perera", "Dr. Fernando" 
+        }));
+        
+        // Populate Treatment Dropdown
+        cmbTreatment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { 
+            "Select a Treatment", "Cleaning", "Whitening", "Filling", "Root Canal", "Extraction" 
+        }));
     }
 
     /**
@@ -30,48 +40,139 @@ public class DashboardView extends javax.swing.JFrame {
 
         DashboardTpane = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        patientNameTxtField = new javax.swing.JTextField();
+        contactNumberTxtField = new javax.swing.JTextField();
+        cmbDentist = new javax.swing.JComboBox<>();
+        cmbTreatment = new javax.swing.JComboBox<>();
+        btnSaveAppointment = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(871, 432));
-        setPreferredSize(new java.awt.Dimension(871, 432));
+
+        DashboardTpane.setBackground(new java.awt.Color(0, 0, 0));
+        DashboardTpane.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        DashboardTpane.setForeground(new java.awt.Color(255, 255, 255));
+        DashboardTpane.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 3, 18)); // NOI18N
+        jLabel1.setText("Patient Name :");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 3, 18)); // NOI18N
+        jLabel2.setText("Contact Number :");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 3, 18)); // NOI18N
+        jLabel3.setText("Treatment Type :");
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 3, 18)); // NOI18N
+        jLabel4.setText("Assigned Dentist :");
+
+        patientNameTxtField.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        patientNameTxtField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        patientNameTxtField.addActionListener(this::patientNameTxtFieldActionPerformed);
+
+        contactNumberTxtField.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        contactNumberTxtField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        contactNumberTxtField.addActionListener(this::contactNumberTxtFieldActionPerformed);
+
+        cmbDentist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbDentist.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        cmbDentist.addActionListener(this::cmbDentistActionPerformed);
+
+        cmbTreatment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbTreatment.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        cmbTreatment.addActionListener(this::cmbTreatmentActionPerformed);
+
+        btnSaveAppointment.setBackground(new java.awt.Color(0, 0, 0));
+        btnSaveAppointment.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        btnSaveAppointment.setForeground(new java.awt.Color(255, 255, 255));
+        btnSaveAppointment.setText("Save Appointment");
+        btnSaveAppointment.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        btnSaveAppointment.addActionListener(this::btnSaveAppointmentActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 859, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3))
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(contactNumberTxtField, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
+                            .addComponent(patientNameTxtField)
+                            .addComponent(cmbDentist, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cmbTreatment, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(269, 269, 269)
+                        .addComponent(btnSaveAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(177, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 391, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(patientNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(contactNumberTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(cmbDentist, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(cmbTreatment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addComponent(btnSaveAppointment)
+                .addGap(55, 55, 55))
         );
 
         DashboardTpane.addTab("Register Appointment", jPanel1);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 859, Short.MAX_VALUE)
+            .addGap(0, 853, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 391, Short.MAX_VALUE)
+            .addGap(0, 388, Short.MAX_VALUE)
         );
 
         DashboardTpane.addTab("Search Records", jPanel2);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 859, Short.MAX_VALUE)
+            .addGap(0, 853, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 391, Short.MAX_VALUE)
+            .addGap(0, 388, Short.MAX_VALUE)
         );
 
         DashboardTpane.addTab("Billing & Receipts", jPanel3);
@@ -94,6 +195,26 @@ public class DashboardView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void patientNameTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientNameTxtFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_patientNameTxtFieldActionPerformed
+
+    private void contactNumberTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactNumberTxtFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_contactNumberTxtFieldActionPerformed
+
+    private void cmbDentistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDentistActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbDentistActionPerformed
+
+    private void cmbTreatmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTreatmentActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbTreatmentActionPerformed
+
+    private void btnSaveAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveAppointmentActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSaveAppointmentActionPerformed
 
     /**
      * @param args the command line arguments
@@ -122,8 +243,17 @@ public class DashboardView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane DashboardTpane;
+    private javax.swing.JButton btnSaveAppointment;
+    private javax.swing.JComboBox<String> cmbDentist;
+    private javax.swing.JComboBox<String> cmbTreatment;
+    private javax.swing.JTextField contactNumberTxtField;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JTextField patientNameTxtField;
     // End of variables declaration//GEN-END:variables
 }
