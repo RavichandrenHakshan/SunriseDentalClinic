@@ -49,7 +49,6 @@ public class DashboardView extends javax.swing.JFrame {
         cmbDentist = new javax.swing.JComboBox<>();
         cmbTreatment = new javax.swing.JComboBox<>();
         btnSaveAppointment = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         txtSearch = new javax.swing.JTextField();
@@ -57,6 +56,13 @@ public class DashboardView extends javax.swing.JFrame {
         btnViewAll = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblAppointments = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jlable11 = new javax.swing.JLabel();
+        txtBillingPatientId = new javax.swing.JTextField();
+        btnGenerateInvoice = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtReceiptArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(871, 432));
@@ -125,7 +131,7 @@ public class DashboardView extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(269, 269, 269)
                         .addComponent(btnSaveAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(183, Short.MAX_VALUE))
+                .addContainerGap(177, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,21 +158,6 @@ public class DashboardView extends javax.swing.JFrame {
         );
 
         DashboardTpane.addTab("Register Appointment", jPanel1);
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 859, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 439, Short.MAX_VALUE)
-        );
-
-        DashboardTpane.addTab("Billing & Receipts", jPanel3);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -221,9 +212,9 @@ public class DashboardView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnViewAll))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(107, 107, 107)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 652, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(100, Short.MAX_VALUE))
+                        .addGap(54, 54, 54)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,13 +233,75 @@ public class DashboardView extends javax.swing.JFrame {
 
         DashboardTpane.addTab("Search Records", jPanel2);
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jLabel6.setText("Billing & Receipts");
+
+        jlable11.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jlable11.setText("Enter Patient ID :");
+
+        txtBillingPatientId.setText("Id here....");
+        txtBillingPatientId.addActionListener(this::txtBillingPatientIdActionPerformed);
+
+        btnGenerateInvoice.setBackground(new java.awt.Color(0, 0, 0));
+        btnGenerateInvoice.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        btnGenerateInvoice.setForeground(new java.awt.Color(255, 255, 255));
+        btnGenerateInvoice.setText("Genorate");
+        btnGenerateInvoice.addActionListener(this::btnGenerateInvoiceActionPerformed);
+
+        txtReceiptArea.setEditable(false);
+        txtReceiptArea.setColumns(20);
+        txtReceiptArea.setRows(5);
+        jScrollPane2.setViewportView(txtReceiptArea);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnGenerateInvoice)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGap(296, 296, 296)
+                            .addComponent(jLabel6))
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGap(159, 159, 159)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel3Layout.createSequentialGroup()
+                                    .addComponent(jlable11)
+                                    .addGap(56, 56, 56)
+                                    .addComponent(txtBillingPatientId, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(133, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel6)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlable11)
+                    .addComponent(txtBillingPatientId, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnGenerateInvoice)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+
+        DashboardTpane.addTab("Billing & Receipts", jPanel3);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(DashboardTpane))
+                .addComponent(DashboardTpane)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -334,6 +387,14 @@ public class DashboardView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSearchActionPerformed
 
+    private void txtBillingPatientIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBillingPatientIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBillingPatientIdActionPerformed
+
+    private void btnGenerateInvoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateInvoiceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGenerateInvoiceActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -361,6 +422,7 @@ public class DashboardView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane DashboardTpane;
+    private javax.swing.JButton btnGenerateInvoice;
     private javax.swing.JButton btnSaveAppointment;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnViewAll;
@@ -372,12 +434,17 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel jlable11;
     private javax.swing.JTextField patientNameTxtField;
     private javax.swing.JTable tblAppointments;
+    private javax.swing.JTextField txtBillingPatientId;
+    private javax.swing.JTextArea txtReceiptArea;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }
