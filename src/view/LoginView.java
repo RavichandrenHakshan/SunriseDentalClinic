@@ -83,14 +83,14 @@ public class LoginView extends javax.swing.JFrame {
         signUpButton.setFont(new java.awt.Font("Segoe UI Black", 3, 24)); // NOI18N
         signUpButton.setForeground(new java.awt.Color(255, 255, 255));
         signUpButton.setText("SignUp");
-        signUpButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        signUpButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         signUpButton.addActionListener(this::signUpButtonActionPerformed);
 
         loginButton1.setBackground(new java.awt.Color(0, 0, 0));
         loginButton1.setFont(new java.awt.Font("Segoe UI Black", 3, 24)); // NOI18N
         loginButton1.setForeground(new java.awt.Color(255, 255, 255));
         loginButton1.setText("Login");
-        loginButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        loginButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         loginButton1.addActionListener(this::loginButton1ActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

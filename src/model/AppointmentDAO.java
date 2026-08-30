@@ -28,4 +28,30 @@ public class AppointmentDAO {
         }
         return isSuccess;
     }
+    
+    public java.sql.ResultSet searchAppointments(String searchTerm) {
+        java.sql.ResultSet rs = null;
+        try {
+            Connection con = DBconnection.getConnection();
+            String sql;
+            java.sql.PreparedStatement pst;
+
+            // If the search box is empty, load everything. Otherwise, search by name.
+            if (searchTerm == null || searchTerm.isEmpty()) {
+                sql = "SELECT * FROM appointments";
+                pst = con.prepareStatement(sql);
+            } else {
+                // The % signs allow for partial matches (e.g., searching "smi" finds "Smith")
+                sql = "SELECT * FROM appointments WHERE patient_name LIKE ?";
+                pst = con.prepareStatement(sql);
+                pst.setString(1, "%" + searchTerm + "%");
+            }
+            
+            rs = pst.executeQuery();
+            
+        } catch (Exception e) {
+            System.out.println("Error searching appointments: " + e);
+        }
+        return rs;
+    }
 }
