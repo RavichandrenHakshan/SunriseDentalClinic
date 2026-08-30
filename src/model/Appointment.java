@@ -17,4 +17,4 @@ public class Appointment {
 
     public String getTreatment() { return treatment; }
     public void setTreatment(String treatment) { this.treatment = treatment; }
-}
+} 

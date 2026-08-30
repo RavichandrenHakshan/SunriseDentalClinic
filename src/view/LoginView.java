@@ -35,7 +35,6 @@ public class LoginView extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         usernameTextField = new javax.swing.JTextField();
         loginPasswordField = new javax.swing.JPasswordField();
-        signUpButton = new javax.swing.JButton();
         loginButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -79,13 +78,6 @@ public class LoginView extends javax.swing.JFrame {
 
         loginPasswordField.addActionListener(this::loginPasswordFieldActionPerformed);
 
-        signUpButton.setBackground(new java.awt.Color(0, 0, 0));
-        signUpButton.setFont(new java.awt.Font("Segoe UI Black", 3, 24)); // NOI18N
-        signUpButton.setForeground(new java.awt.Color(255, 255, 255));
-        signUpButton.setText("SignUp");
-        signUpButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        signUpButton.addActionListener(this::signUpButtonActionPerformed);
-
         loginButton1.setBackground(new java.awt.Color(0, 0, 0));
         loginButton1.setFont(new java.awt.Font("Segoe UI Black", 3, 24)); // NOI18N
         loginButton1.setForeground(new java.awt.Color(255, 255, 255));
@@ -99,10 +91,9 @@ public class LoginView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 47, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel4))
@@ -111,11 +102,9 @@ public class LoginView extends javax.swing.JFrame {
                             .addComponent(usernameTextField)
                             .addComponent(loginPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(119, 119, 119))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(loginButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(signUpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(74, 74, 74))))
+                        .addGap(205, 205, 205))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap(409, Short.MAX_VALUE)
@@ -137,10 +126,8 @@ public class LoginView extends javax.swing.JFrame {
                     .addComponent(loginPasswordField)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(signUpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(loginButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48))
+                .addComponent(loginButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(31, 31, 31)
@@ -155,10 +142,6 @@ public class LoginView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_usernameTextFieldActionPerformed
 
-    private void signUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_signUpButtonActionPerformed
-
     private void loginButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButton1ActionPerformed
 
         String username = usernameTextField.getText().trim();
@@ -168,16 +151,31 @@ public class LoginView extends javax.swing.JFrame {
         controller.LoginController loginCtrl = new controller.LoginController();
         String result = loginCtrl.login(username, password);
 
-        if (result.equals("LOGIN_SUCCESS")) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Login Successful!", "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        if (result.startsWith("SUCCESS")) {
+            String role = result.split(":")[1]; 
             
-            DashboardView dashboard = new DashboardView();
-            dashboard.setVisible(true);
-            dashboard.setLocationRelativeTo(null);
+            javax.swing.JOptionPane.showMessageDialog(this, "Login Successful! Welcome, " + role, "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE);
             
-            this.dispose(); 
+            // Route the user based on their role
+            if (role.equals("Manager")) {
+                ManagerDashboard managerDash = new ManagerDashboard();
+                managerDash.setVisible(true);
+                managerDash.setLocationRelativeTo(null);
+            } else if (role.equals("Dentist")) {
+                DentistDashboard dentistDash = new DentistDashboard();
+                dentistDash.setVisible(true);
+                dentistDash.setLocationRelativeTo(null);
+            } else {
+                // Default Receptionist view
+                DashboardView receptionistDash = new DashboardView();
+                receptionistDash.setVisible(true);
+                receptionistDash.setLocationRelativeTo(null);
+            }
+            
+            this.dispose(); // Close the login window
             
         } else {
+            // Shows the exact validation error
             javax.swing.JOptionPane.showMessageDialog(this, result, "Login Error", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_loginButton1ActionPerformed
@@ -219,7 +217,6 @@ public class LoginView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton loginButton1;
     private javax.swing.JPasswordField loginPasswordField;
-    private javax.swing.JButton signUpButton;
     private javax.swing.JTextField usernameTextField;
     // End of variables declaration//GEN-END:variables
 }

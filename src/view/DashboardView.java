@@ -392,7 +392,14 @@ public class DashboardView extends javax.swing.JFrame {
     }//GEN-LAST:event_txtBillingPatientIdActionPerformed
 
     private void btnGenerateInvoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateInvoiceActionPerformed
-        // TODO add your handling code here:
+        String patientId = txtBillingPatientId.getText().trim();
+        
+        // 2. Pass to controller
+        controller.BillingController billCtrl = new controller.BillingController();
+        String result = billCtrl.generateReceipt(patientId);
+        
+        // 3. Display the result in the receipt text area
+        txtReceiptArea.setText(result);
     }//GEN-LAST:event_btnGenerateInvoiceActionPerformed
 
     /**

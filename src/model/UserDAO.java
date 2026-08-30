@@ -9,32 +9,27 @@ public class UserDAO {
 
     public User authenticateUser(String username, String password) {
         User loggedInUser = null;
-
         try {
-            Connection con = DBconnection.getConnection();
-            
+            java.sql.Connection con = util.DBconnection.getConnection();
             String sql = "SELECT * FROM users WHERE username=? AND password=?";
-            PreparedStatement pst = con.prepareStatement(sql);
-            
+            java.sql.PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, username);
             pst.setString(2, password);
             
-            ResultSet rs = pst.executeQuery();
-            
-
+            java.sql.ResultSet rs = pst.executeQuery();
             if (rs.next()) {
                 loggedInUser = new User();
                 loggedInUser.setId(rs.getInt("id"));
                 loggedInUser.setUsername(rs.getString("username"));
-                loggedInUser.setRole(rs.getString("role"));
+                loggedInUser.setPassword(rs.getString("password"));
                 
-                System.out.println("User Authenticated. Role: " + loggedInUser.getRole());
+                // Add this new line to grab the role!
+                loggedInUser.setRole(rs.getString("role")); 
             }
-            
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println("Login Error: " + e);
         }
-        
         return loggedInUser;
     }
+    
 }

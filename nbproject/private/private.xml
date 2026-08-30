@@ -10,6 +10,11 @@
             <file>file:/C:/Users/Ravic/OneDrive/Documents/NetBeansProjects/SunriseDentalClinic/src/controller/LoginController.java</file>
             <file>file:/C:/Users/Ravic/OneDrive/Documents/NetBeansProjects/SunriseDentalClinic/src/view/LoginView.java</file>
             <file>file:/C:/Users/Ravic/OneDrive/Documents/NetBeansProjects/SunriseDentalClinic/src/view/DashboardView.java</file>
+            <file>file:/C:/Users/Ravic/OneDrive/Documents/NetBeansProjects/SunriseDentalClinic/src/controller/AppointmentController.java</file>
+            <file>file:/C:/Users/Ravic/OneDrive/Documents/NetBeansProjects/SunriseDentalClinic/src/model/Appointment.java</file>
+            <file>file:/C:/Users/Ravic/OneDrive/Documents/NetBeansProjects/SunriseDentalClinic/src/model/AppointmentDAO.java</file>
+            <file>file:/C:/Users/Ravic/OneDrive/Documents/NetBeansProjects/SunriseDentalClinic/src/controller/SearchController.java</file>
+            <file>file:/C:/Users/Ravic/OneDrive/Documents/NetBeansProjects/SunriseDentalClinic/src/controller/BillingController.java</file>
         </group>
     </open-files>
 </project-private>

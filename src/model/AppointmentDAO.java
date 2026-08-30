@@ -53,5 +53,20 @@ public class AppointmentDAO {
             System.out.println("Error searching appointments: " + e);
         }
         return rs;
+        
+    }
+    
+    public java.sql.ResultSet getAppointmentById(int id) {
+        java.sql.ResultSet rs = null;
+        try {
+            Connection con = DBconnection.getConnection();
+            String sql = "SELECT * FROM appointments WHERE id = ?";
+            java.sql.PreparedStatement pst = con.prepareStatement(sql);
+            pst.setInt(1, id);
+            rs = pst.executeQuery();
+        } catch (Exception e) {
+            System.out.println("Error fetching appointment by ID: " + e);
+        }
+        return rs;
     }
 }
