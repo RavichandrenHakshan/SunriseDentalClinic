@@ -8,14 +8,14 @@ package view;
  *
  * @author Ravic
  */
-public class DentistDashboard extends javax.swing.JFrame {
+public class CreateUserView extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(DentistDashboard.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CreateUserView.class.getName());
 
     /**
-     * Creates new form DentistDashboard
+     * Creates new form CreateUserView
      */
-    public DentistDashboard() {
+    public CreateUserView() {
         initComponents();
     }
 
@@ -29,17 +29,16 @@ public class DentistDashboard extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(871, 432));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 871, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 432, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         pack();
@@ -67,7 +66,7 @@ public class DentistDashboard extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new DentistDashboard().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new CreateUserView().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
