@@ -9,20 +9,21 @@ public class AppointmentDAO {
     public boolean saveAppointment(Appointment appt) {
         boolean isSuccess = false;
         try {
-            Connection con = DBconnection.getConnection();
-            String sql = "INSERT INTO appointments (patient_name, contact_number, dentist, treatment) VALUES (?, ?, ?, ?)";
+            java.sql.Connection con = util.DBconnection.getConnection();
+
+            String sql = "INSERT INTO appointments (patient_name, contact_number, dentist, treatment, appointment_date) VALUES (?, ?, ?, ?, ?)";
             
-            PreparedStatement pst = con.prepareStatement(sql);
+            java.sql.PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, appt.getPatientName());
             pst.setString(2, appt.getContactNumber());
             pst.setString(3, appt.getDentist());
             pst.setString(4, appt.getTreatment());
+            pst.setString(5, appt.getAppointmentDate());
             
             int rowsAffected = pst.executeUpdate();
             if (rowsAffected > 0) {
                 isSuccess = true;
             }
-            
         } catch (Exception e) {
             System.out.println("Error saving appointment: " + e);
         }
@@ -36,12 +37,10 @@ public class AppointmentDAO {
             String sql;
             java.sql.PreparedStatement pst;
 
-            // If the search box is empty, load everything. Otherwise, search by name.
             if (searchTerm == null || searchTerm.isEmpty()) {
                 sql = "SELECT * FROM appointments";
                 pst = con.prepareStatement(sql);
             } else {
-                // The % signs allow for partial matches (e.g., searching "smi" finds "Smith")
                 sql = "SELECT * FROM appointments WHERE patient_name LIKE ?";
                 pst = con.prepareStatement(sql);
                 pst.setString(1, "%" + searchTerm + "%");
@@ -66,6 +65,20 @@ public class AppointmentDAO {
             rs = pst.executeQuery();
         } catch (Exception e) {
             System.out.println("Error fetching appointment by ID: " + e);
+        }
+        return rs;
+    }
+    
+    public java.sql.ResultSet getAppointmentsByDentist(String dentistName) {
+        java.sql.ResultSet rs = null;
+        try {
+            java.sql.Connection con = util.DBconnection.getConnection();
+            String sql = "SELECT * FROM appointments WHERE dentist = ?";
+            java.sql.PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, dentistName);
+            rs = pst.executeQuery();
+        } catch (Exception e) {
+            System.out.println("Error fetching dentist schedule: " + e);
         }
         return rs;
     }

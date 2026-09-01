@@ -28,22 +28,69 @@ public class ManagerDashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        btnOpenClinic = new javax.swing.JButton();
+        CreateuserBtn = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(871, 432));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 3, 36)); // NOI18N
+        jLabel1.setText("Manager Dashboard");
+
+        btnOpenClinic.setBackground(new java.awt.Color(0, 0, 0));
+        btnOpenClinic.setFont(new java.awt.Font("Segoe UI Black", 3, 18)); // NOI18N
+        btnOpenClinic.setForeground(new java.awt.Color(255, 255, 255));
+        btnOpenClinic.setText("Open Clinic \nsystem");
+        btnOpenClinic.addActionListener(this::btnOpenClinicActionPerformed);
+
+        CreateuserBtn.setBackground(new java.awt.Color(0, 0, 0));
+        CreateuserBtn.setFont(new java.awt.Font("Segoe UI Black", 3, 18)); // NOI18N
+        CreateuserBtn.setForeground(new java.awt.Color(255, 255, 255));
+        CreateuserBtn.setText("Create User");
+        CreateuserBtn.addActionListener(this::CreateuserBtnActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 871, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(234, 234, 234)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(143, 143, 143)
+                .addComponent(CreateuserBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 165, Short.MAX_VALUE)
+                .addComponent(btnOpenClinic)
+                .addGap(154, 154, 154))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 432, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel1)
+                .addGap(101, 101, 101)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnOpenClinic, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CreateuserBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnOpenClinicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenClinicActionPerformed
+        DashboardView clinicDash = new DashboardView();
+        clinicDash.setVisible(true);
+        clinicDash.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnOpenClinicActionPerformed
+
+    private void CreateuserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateuserBtnActionPerformed
+        CreateUserView createUserScreen = new CreateUserView();
+        createUserScreen.setVisible(true);
+        createUserScreen.setLocationRelativeTo(null);
+    }//GEN-LAST:event_CreateuserBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -71,5 +118,8 @@ public class ManagerDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton CreateuserBtn;
+    private javax.swing.JButton btnOpenClinic;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

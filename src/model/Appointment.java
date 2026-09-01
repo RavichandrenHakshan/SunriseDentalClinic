@@ -5,6 +5,7 @@ public class Appointment {
     private String contactNumber;
     private String dentist;
     private String treatment;
+    private String appointmentDate;
 
     public String getPatientName() { return patientName; }
     public void setPatientName(String patientName) { this.patientName = patientName; }
@@ -17,4 +18,7 @@ public class Appointment {
 
     public String getTreatment() { return treatment; }
     public void setTreatment(String treatment) { this.treatment = treatment; }
-} 
+
+    public String getAppointmentDate() { return appointmentDate; }
+    public void setAppointmentDate(String appointmentDate) { this.appointmentDate = appointmentDate; }
+}

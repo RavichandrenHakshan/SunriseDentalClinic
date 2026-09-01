@@ -28,22 +28,63 @@ public class DentistDashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        btnLaunchSchedule = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(871, 432));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 3, 36)); // NOI18N
+        jLabel1.setText("DentistWebService");
+
+        btnLaunchSchedule.setBackground(new java.awt.Color(0, 0, 0));
+        btnLaunchSchedule.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        btnLaunchSchedule.setForeground(new java.awt.Color(255, 255, 255));
+        btnLaunchSchedule.setText("Launch Web Schedule");
+        btnLaunchSchedule.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 4, true));
+        btnLaunchSchedule.addActionListener(this::btnLaunchScheduleActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 871, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(239, 239, 239)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(319, 319, 319)
+                        .addComponent(btnLaunchSchedule)))
+                .addContainerGap(277, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 432, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(jLabel1)
+                .addGap(134, 134, 134)
+                .addComponent(btnLaunchSchedule)
+                .addContainerGap(180, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLaunchScheduleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaunchScheduleActionPerformed
+        String currentDentist = "Dr. Smith"; 
+
+        // 1. Start the native web service
+        controller.DentistWebService webService = new controller.DentistWebService();
+        webService.startServer(currentDentist);
+        
+        // 2. Force the computer's default browser to open the web service URL
+        try {
+            java.awt.Desktop.getDesktop().browse(new java.net.URI("http://localhost:8080/schedule"));
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error opening browser: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnLaunchScheduleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -71,5 +112,7 @@ public class DentistDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLaunchSchedule;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

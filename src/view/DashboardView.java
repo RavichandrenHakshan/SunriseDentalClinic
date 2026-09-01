@@ -49,6 +49,8 @@ public class DashboardView extends javax.swing.JFrame {
         cmbDentist = new javax.swing.JComboBox<>();
         cmbTreatment = new javax.swing.JComboBox<>();
         btnSaveAppointment = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        txtApptDate = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         txtSearch = new javax.swing.JTextField();
@@ -109,6 +111,13 @@ public class DashboardView extends javax.swing.JFrame {
         btnSaveAppointment.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         btnSaveAppointment.addActionListener(this::btnSaveAppointmentActionPerformed);
 
+        jLabel7.setFont(new java.awt.Font("Segoe UI Black", 3, 18)); // NOI18N
+        jLabel7.setText("Date & Time:");
+
+        txtApptDate.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        txtApptDate.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        txtApptDate.addActionListener(this::txtApptDateActionPerformed);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -121,13 +130,15 @@ public class DashboardView extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel3))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel7))
                         .addGap(37, 37, 37)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(contactNumberTxtField, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
                             .addComponent(patientNameTxtField)
                             .addComponent(cmbDentist, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cmbTreatment, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(cmbTreatment, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtApptDate)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(269, 269, 269)
                         .addComponent(btnSaveAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -148,11 +159,15 @@ public class DashboardView extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(cmbDentist, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(cmbTreatment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addComponent(txtApptDate, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                 .addComponent(btnSaveAppointment)
                 .addGap(55, 55, 55))
         );
@@ -330,14 +345,13 @@ public class DashboardView extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbTreatmentActionPerformed
 
     private void btnSaveAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveAppointmentActionPerformed
-        // 1. Gather the data from the fields
         String patientName = patientNameTxtField.getText().trim();
         String contactNumber = contactNumberTxtField.getText().trim();
         String dentist = cmbDentist.getSelectedItem().toString();
         String treatment = cmbTreatment.getSelectedItem().toString();
+        String apptDate = txtApptDate.getText().trim(); // Grab the new date field
 
-        // 2. Basic UI Validation (Ensure fields aren't empty)
-        if (patientName.isEmpty() || contactNumber.isEmpty() || 
+        if (patientName.isEmpty() || contactNumber.isEmpty() || apptDate.isEmpty() || 
             dentist.equals("Select a Dentist") || treatment.equals("Select a Treatment")) {
             
             javax.swing.JOptionPane.showMessageDialog(this, 
@@ -346,18 +360,16 @@ public class DashboardView extends javax.swing.JFrame {
                 javax.swing.JOptionPane.ERROR_MESSAGE);
             return;
         }
-
-        // 3. Connect to the Controller (We will create this next!)
+        
         controller.AppointmentController apptCtrl = new controller.AppointmentController();
-        String result = apptCtrl.registerAppointment(patientName, contactNumber, dentist, treatment);
-
-        // 4. Show Success or Error
+        String result = apptCtrl.registerAppointment(patientName, contactNumber, dentist, treatment, apptDate);
+        
         if (result.equals("SUCCESS")) {
             javax.swing.JOptionPane.showMessageDialog(this, "Appointment Saved Successfully!");
             
-            // Clear the fields for the next patient
             patientNameTxtField.setText("");
             contactNumberTxtField.setText("");
+            txtApptDate.setText(""); 
             cmbDentist.setSelectedIndex(0);
             cmbTreatment.setSelectedIndex(0);
         } else {
@@ -402,6 +414,10 @@ public class DashboardView extends javax.swing.JFrame {
         txtReceiptArea.setText(result);
     }//GEN-LAST:event_btnGenerateInvoiceActionPerformed
 
+    private void txtApptDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApptDateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtApptDateActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -442,6 +458,7 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -450,6 +467,7 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel jlable11;
     private javax.swing.JTextField patientNameTxtField;
     private javax.swing.JTable tblAppointments;
+    private javax.swing.JTextField txtApptDate;
     private javax.swing.JTextField txtBillingPatientId;
     private javax.swing.JTextArea txtReceiptArea;
     private javax.swing.JTextField txtSearch;

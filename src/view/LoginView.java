@@ -166,7 +166,6 @@ public class LoginView extends javax.swing.JFrame {
                 dentistDash.setVisible(true);
                 dentistDash.setLocationRelativeTo(null);
             } else {
-                // Default Receptionist view
                 DashboardView receptionistDash = new DashboardView();
                 receptionistDash.setVisible(true);
                 receptionistDash.setLocationRelativeTo(null);
