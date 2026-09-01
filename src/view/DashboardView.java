@@ -51,6 +51,7 @@ public class DashboardView extends javax.swing.JFrame {
         btnSaveAppointment = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         txtApptDate = new javax.swing.JTextField();
+        logoutBtn2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         txtSearch = new javax.swing.JTextField();
@@ -58,6 +59,7 @@ public class DashboardView extends javax.swing.JFrame {
         btnViewAll = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblAppointments = new javax.swing.JTable();
+        logoutBtn1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jlable11 = new javax.swing.JLabel();
@@ -65,6 +67,7 @@ public class DashboardView extends javax.swing.JFrame {
         btnGenerateInvoice = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtReceiptArea = new javax.swing.JTextArea();
+        logoutBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(871, 432));
@@ -118,6 +121,11 @@ public class DashboardView extends javax.swing.JFrame {
         txtApptDate.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         txtApptDate.addActionListener(this::txtApptDateActionPerformed);
 
+        logoutBtn2.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        logoutBtn2.setText("Log out");
+        logoutBtn2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        logoutBtn2.addActionListener(this::logoutBtn2ActionPerformed);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -141,7 +149,8 @@ public class DashboardView extends javax.swing.JFrame {
                             .addComponent(txtApptDate)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(269, 269, 269)
-                        .addComponent(btnSaveAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnSaveAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(logoutBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(177, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -169,7 +178,8 @@ public class DashboardView extends javax.swing.JFrame {
                     .addComponent(txtApptDate, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                 .addComponent(btnSaveAppointment)
-                .addGap(55, 55, 55))
+                .addGap(29, 29, 29)
+                .addComponent(logoutBtn2))
         );
 
         DashboardTpane.addTab("Register Appointment", jPanel1);
@@ -208,6 +218,11 @@ public class DashboardView extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblAppointments);
 
+        logoutBtn1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        logoutBtn1.setText("Log out");
+        logoutBtn1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        logoutBtn1.addActionListener(this::logoutBtn1ActionPerformed);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -228,7 +243,8 @@ public class DashboardView extends javax.swing.JFrame {
                         .addComponent(btnViewAll))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(54, 54, 54)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(logoutBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(52, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -241,9 +257,10 @@ public class DashboardView extends javax.swing.JFrame {
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearch)
                     .addComponent(btnViewAll))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(logoutBtn1))
         );
 
         DashboardTpane.addTab("Search Records", jPanel2);
@@ -270,11 +287,18 @@ public class DashboardView extends javax.swing.JFrame {
         txtReceiptArea.setRows(5);
         jScrollPane2.setViewportView(txtReceiptArea);
 
+        logoutBtn.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        logoutBtn.setText("Log out");
+        logoutBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        logoutBtn.addActionListener(this::logoutBtnActionPerformed);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnGenerateInvoice)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -289,7 +313,7 @@ public class DashboardView extends javax.swing.JFrame {
                                     .addComponent(jlable11)
                                     .addGap(56, 56, 56)
                                     .addComponent(txtBillingPatientId, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -305,6 +329,9 @@ public class DashboardView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(22, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(logoutBtn))
         );
 
         DashboardTpane.addTab("Billing & Receipts", jPanel3);
@@ -418,6 +445,27 @@ public class DashboardView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApptDateActionPerformed
 
+    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
+        LoginView loginScreen = new LoginView();
+        loginScreen.setVisible(true);
+        loginScreen.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_logoutBtnActionPerformed
+
+    private void logoutBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtn2ActionPerformed
+        LoginView loginScreen = new LoginView();
+        loginScreen.setVisible(true);
+        loginScreen.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_logoutBtn2ActionPerformed
+
+    private void logoutBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtn1ActionPerformed
+        LoginView loginScreen = new LoginView();
+        loginScreen.setVisible(true);
+        loginScreen.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_logoutBtn1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -465,6 +513,9 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel jlable11;
+    private javax.swing.JButton logoutBtn;
+    private javax.swing.JButton logoutBtn1;
+    private javax.swing.JButton logoutBtn2;
     private javax.swing.JTextField patientNameTxtField;
     private javax.swing.JTable tblAppointments;
     private javax.swing.JTextField txtApptDate;
