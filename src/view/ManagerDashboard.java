@@ -31,6 +31,7 @@ public class ManagerDashboard extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnOpenClinic = new javax.swing.JButton();
         CreateuserBtn = new javax.swing.JButton();
+        LgOutBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(871, 432));
@@ -50,12 +51,17 @@ public class ManagerDashboard extends javax.swing.JFrame {
         CreateuserBtn.setText("Create User");
         CreateuserBtn.addActionListener(this::CreateuserBtnActionPerformed);
 
+        LgOutBtn.setText("Log Out");
+        LgOutBtn.addActionListener(this::LgOutBtnActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(234, 234, 234)
+                .addContainerGap()
+                .addComponent(LgOutBtn)
+                .addGap(153, 153, 153)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -69,7 +75,9 @@ public class ManagerDashboard extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(LgOutBtn))
                 .addGap(101, 101, 101)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnOpenClinic, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -84,13 +92,22 @@ public class ManagerDashboard extends javax.swing.JFrame {
         DashboardView clinicDash = new DashboardView();
         clinicDash.setVisible(true);
         clinicDash.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_btnOpenClinicActionPerformed
 
     private void CreateuserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateuserBtnActionPerformed
         CreateUserView createUserScreen = new CreateUserView();
         createUserScreen.setVisible(true);
         createUserScreen.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_CreateuserBtnActionPerformed
+
+    private void LgOutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LgOutBtnActionPerformed
+        LoginView logs = new LoginView();
+        logs.setVisible(true);
+        logs.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_LgOutBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -119,6 +136,7 @@ public class ManagerDashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CreateuserBtn;
+    private javax.swing.JButton LgOutBtn;
     private javax.swing.JButton btnOpenClinic;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

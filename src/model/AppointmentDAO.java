@@ -82,4 +82,23 @@ public class AppointmentDAO {
         }
         return rs;
     }
+    
+    public boolean checkConflict(String dentist, String appointmentDate) {
+        boolean hasConflict = false;
+        try {
+            java.sql.Connection con = util.DBconnection.getConnection();
+            String sql = "SELECT * FROM appointments WHERE dentist = ? AND appointment_date = ?";
+            java.sql.PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, dentist);
+            pst.setString(2, appointmentDate);
+            
+            java.sql.ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                hasConflict = true; 
+            }
+        } catch (Exception e) {
+            System.out.println("Error checking conflict: " + e);
+        }
+        return hasConflict;
+    }
 }

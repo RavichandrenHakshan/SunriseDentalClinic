@@ -17,8 +17,7 @@ public class DashboardView extends javax.swing.JFrame {
      */
     public DashboardView() {
         initComponents();
-        
-        // Populate Dentist Dropdown
+
         cmbDentist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { 
             "Select a Dentist", "Dr. Smith", "Dr. Perera", "Dr. Fernando" 
         }));
@@ -99,7 +98,7 @@ public class DashboardView extends javax.swing.JFrame {
         contactNumberTxtField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         contactNumberTxtField.addActionListener(this::contactNumberTxtFieldActionPerformed);
 
-        cmbDentist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select a Dentist", "Dr. Smith ", "Dr. Perera", "Dr. Fernando" }));
+        cmbDentist.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select a Dentist", "Dr. Smith", "Dr. Perera", "Dr. Fernando" }));
         cmbDentist.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         cmbDentist.addActionListener(this::cmbDentistActionPerformed);
 
@@ -297,28 +296,27 @@ public class DashboardView extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnGenerateInvoice)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addGap(296, 296, 296)
-                            .addComponent(jLabel6))
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addGap(159, 159, 159)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(146, 146, 146)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnGenerateInvoice)
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel3Layout.createSequentialGroup()
+                                    .addGap(137, 137, 137)
+                                    .addComponent(jLabel6))
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel3Layout.createSequentialGroup()
                                     .addComponent(jlable11)
                                     .addGap(56, 56, 56)
                                     .addComponent(txtBillingPatientId, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 16, Short.MAX_VALUE)
                 .addComponent(jLabel6)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -328,9 +326,7 @@ public class DashboardView extends javax.swing.JFrame {
                 .addComponent(btnGenerateInvoice)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(10, 10, 10)
                 .addComponent(logoutBtn))
         );
 
