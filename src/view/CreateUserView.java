@@ -164,9 +164,10 @@ public class CreateUserView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSaveUserActionPerformed
 
     private void btnEditUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditUserActionPerformed
-        DashboardView clinicDash = new DashboardView();
-        clinicDash.setVisible(true);
-        clinicDash.setLocationRelativeTo(null);
+        EditView editScreen = new EditView();
+        editScreen.setVisible(true);
+        editScreen.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_btnEditUserActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed

@@ -51,4 +51,40 @@ public class UserDAO {
         }
         return isSuccess;
     }
+    
+    public boolean updateUser(String username, String newPassword, String newRole) {
+        boolean isSuccess = false;
+        try {
+            java.sql.Connection con = util.DBconnection.getConnection();
+            String sql = "UPDATE users SET password = ?, role = ? WHERE username = ?";
+            java.sql.PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, newPassword);
+            pst.setString(2, newRole);
+            pst.setString(3, username);
+            
+            if (pst.executeUpdate() > 0) {
+                isSuccess = true;
+            }
+        } catch (Exception e) {
+            System.out.println("Error updating user: " + e);
+        }
+        return isSuccess;
+    }
+
+    public boolean deleteUser(String username) {
+        boolean isSuccess = false;
+        try {
+            java.sql.Connection con = util.DBconnection.getConnection();
+            String sql = "DELETE FROM users WHERE username = ?";
+            java.sql.PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, username);
+            
+            if (pst.executeUpdate() > 0) {
+                isSuccess = true;
+            }
+        } catch (Exception e) {
+            System.out.println("Error deleting user: " + e);
+        }
+        return isSuccess;
+    }
 }

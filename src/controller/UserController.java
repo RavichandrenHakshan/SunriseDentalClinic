@@ -35,4 +35,24 @@ public class UserController {
             return "Failed to save user to the database.";
         }
     }
+    
+    public String editUser(String username, String newPassword, String newRole) {
+        if (username.isEmpty()) return "Please enter the username you want to edit.";
+        
+        model.UserDAO dao = new model.UserDAO();
+        if (dao.updateUser(username, newPassword, newRole)) {
+            return "SUCCESS";
+        }
+        return "Failed to update user. Username may not exist.";
+    }
+
+    public String removeUser(String username) {
+        if (username.isEmpty()) return "Please enter a username to delete.";
+        
+        model.UserDAO dao = new model.UserDAO();
+        if (dao.deleteUser(username)) {
+            return "SUCCESS";
+        }
+        return "Failed to delete user. Username may not exist.";
+    }
 }

@@ -156,7 +156,6 @@ public class LoginView extends javax.swing.JFrame {
             
             javax.swing.JOptionPane.showMessageDialog(this, "Login Successful! Welcome, " + role, "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE);
             
-            // Route the user based on their role
             if (role.equals("Manager")) {
                 ManagerDashboard managerDash = new ManagerDashboard();
                 managerDash.setVisible(true);
@@ -171,10 +170,10 @@ public class LoginView extends javax.swing.JFrame {
                 receptionistDash.setLocationRelativeTo(null);
             }
             
-            this.dispose(); // Close the login window
+            this.dispose();
             
         } else {
-            // Shows the exact validation error
+
             javax.swing.JOptionPane.showMessageDialog(this, result, "Login Error", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_loginButton1ActionPerformed
