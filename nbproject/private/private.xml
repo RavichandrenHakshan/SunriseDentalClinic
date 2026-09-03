@@ -3,13 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Ravic/OneDrive/Documents/NetBeansProjects/SunriseDentalClinic/src/view/DentistDashboard.java</file>
-            <file>file:/C:/Users/Ravic/OneDrive/Documents/NetBeansProjects/SunriseDentalClinic/src/controller/DentistWebService.java</file>
             <file>file:/C:/Users/Ravic/OneDrive/Documents/NetBeansProjects/SunriseDentalClinic/src/view/LoginView.java</file>
+            <file>file:/C:/Users/Ravic/OneDrive/Documents/NetBeansProjects/SunriseDentalClinic/src/view/ManagerDashboard.java</file>
+            <file>file:/C:/Users/Ravic/OneDrive/Documents/NetBeansProjects/SunriseDentalClinic/src/view/CreateUserView.java</file>
+            <file>file:/C:/Users/Ravic/OneDrive/Documents/NetBeansProjects/SunriseDentalClinic/src/model/AppointmentDAO.java</file>
             <file>file:/C:/Users/Ravic/OneDrive/Documents/NetBeansProjects/SunriseDentalClinic/src/view/DashboardView.java</file>
             <file>file:/C:/Users/Ravic/OneDrive/Documents/NetBeansProjects/SunriseDentalClinic/src/controller/SearchController.java</file>
-            <file>file:/C:/Users/Ravic/OneDrive/Documents/NetBeansProjects/SunriseDentalClinic/src/model/Appointment.java</file>
-            <file>file:/C:/Users/Ravic/OneDrive/Documents/NetBeansProjects/SunriseDentalClinic/src/model/AppointmentDAO.java</file>
+            <file>file:/C:/Users/Ravic/OneDrive/Documents/NetBeansProjects/SunriseDentalClinic/test/com/sunriseclinic/backend/AppointmentControllerTest.java</file>
+            <file>file:/C:/Users/Ravic/OneDrive/Documents/NetBeansProjects/SunriseDentalClinic/src/controller/BillingController.java</file>
+            <file>file:/C:/Users/Ravic/OneDrive/Documents/NetBeansProjects/SunriseDentalClinic/test/com/sunriseclinic/backend/SearchControllerTest.java</file>
+            <file>file:/C:/Users/Ravic/OneDrive/Documents/NetBeansProjects/SunriseDentalClinic/test/com/sunriseclinic/backend/BillingControllerTest.java</file>
         </group>
     </open-files>
 </project-private>

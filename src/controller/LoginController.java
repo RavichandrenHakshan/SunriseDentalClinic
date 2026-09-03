@@ -27,7 +27,6 @@ public class LoginController {
         User loggedInUser = dao.authenticateUser(username, password);
 
         if (loggedInUser != null) {
-            // This now dynamically returns "SUCCESS:Manager", "SUCCESS:Dentist", etc.
             return "SUCCESS:" + loggedInUser.getRole();
         } else {
             return "INVALID_CREDENTIALS";

@@ -22,7 +22,7 @@ public class UserDAO {
                 loggedInUser.setId(rs.getInt("id"));
                 loggedInUser.setUsername(rs.getString("username"));
                 loggedInUser.setPassword(rs.getString("password"));
-                loggedInUser.setRole(rs.getString("role")); // Grabs the role for RBAC
+                loggedInUser.setRole(rs.getString("role"));
             }
         } catch (Exception e) {
             System.out.println("Login Error: " + e);
