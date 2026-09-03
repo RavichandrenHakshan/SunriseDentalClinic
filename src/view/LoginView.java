@@ -161,7 +161,7 @@ public class LoginView extends javax.swing.JFrame {
                 managerDash.setVisible(true);
                 managerDash.setLocationRelativeTo(null);
             } else if (role.equals("Dentist")) {
-                DentistDashboard dentistDash = new DentistDashboard();
+                DentistDashboard dentistDash = new DentistDashboard(username);
                 dentistDash.setVisible(true);
                 dentistDash.setLocationRelativeTo(null);
             } else {

@@ -48,7 +48,7 @@ public class DentistWebService {
             html.append("th, td { padding: 15px; border-bottom: 1px solid #ddd; text-align: left; }");
             html.append("th { background-color: #2c3e50; color: white; }");
             html.append("</style></head><body>");
-            html.append("<h2>Live Appointment Schedule for ").append(dentistName).append("</h2>");
+            html.append("<h2>Appointment Schedule for ").append(dentistName).append("</h2>");
             html.append("<table><tr><th>ID</th><th>Date & Time</th><th>Patient</th><th>Contact</th><th>Treatment</th></tr>");
 
             // 2. Fetch live data from the database

@@ -240,11 +240,11 @@ public class DashboardView extends javax.swing.JFrame {
                                 .addComponent(btnSearch)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnViewAll))
+                    .addComponent(logoutBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(logoutBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(52, Short.MAX_VALUE))
+                        .addGap(26, 26, 26)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 793, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -401,21 +401,16 @@ public class DashboardView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSaveAppointmentActionPerformed
 
     private void btnViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAllActionPerformed
-        // Clear the search box
         txtSearch.setText("");
         
-        // Passing an empty string triggers the controller to fetch all records
         controller.SearchController searchCtrl = new controller.SearchController();
         tblAppointments.setModel(searchCtrl.getAppointmentTable(""));
     }//GEN-LAST:event_btnViewAllActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        // Capture what the user typed
-        String searchTerm = txtSearch.getText().trim();
-        
-        // Pass to controller and update the table
+        String searchInput = txtSearch.getText(); 
         controller.SearchController searchCtrl = new controller.SearchController();
-        tblAppointments.setModel(searchCtrl.getAppointmentTable(searchTerm));
+        tblAppointments.setModel(searchCtrl.getAppointmentTable(searchInput));
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
@@ -429,11 +424,9 @@ public class DashboardView extends javax.swing.JFrame {
     private void btnGenerateInvoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateInvoiceActionPerformed
         String patientId = txtBillingPatientId.getText().trim();
         
-        // 2. Pass to controller
         controller.BillingController billCtrl = new controller.BillingController();
         String result = billCtrl.generateReceipt(patientId);
         
-        // 3. Display the result in the receipt text area
         txtReceiptArea.setText(result);
     }//GEN-LAST:event_btnGenerateInvoiceActionPerformed
 

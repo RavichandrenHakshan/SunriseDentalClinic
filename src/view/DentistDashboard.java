@@ -11,13 +11,21 @@ package view;
 public class DentistDashboard extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(DentistDashboard.class.getName());
+    private String loggedInDentist;
 
-    /**
-     * Creates new form DentistDashboard
-     */
+    // Default constructor (leave this alone so NetBeans doesn't complain)
     public DentistDashboard() {
         initComponents();
     }
+
+    // 2. Add this NEW constructor right below it
+    public DentistDashboard(String username) {
+        initComponents();
+        this.loggedInDentist = username; 
+        
+        // Optional: Change the window title to welcome them!
+        this.setTitle("Dashboard - " + username);
+    }   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -72,13 +80,15 @@ public class DentistDashboard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLaunchScheduleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaunchScheduleActionPerformed
-        String currentDentist = "Dr. Smith"; 
 
-        // 1. Start the native web service
+        if (this.loggedInDentist == null) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error: No dentist logged in.");
+            return;
+        }
+
         controller.DentistWebService webService = new controller.DentistWebService();
-        webService.startServer(currentDentist);
+        webService.startServer(this.loggedInDentist);
         
-        // 2. Force the computer's default browser to open the web service URL
         try {
             java.awt.Desktop.getDesktop().browse(new java.net.URI("http://localhost:8080/schedule"));
         } catch (Exception e) {

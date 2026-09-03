@@ -33,26 +33,21 @@ public class AppointmentDAO {
     public java.sql.ResultSet searchAppointments(String searchTerm) {
         java.sql.ResultSet rs = null;
         try {
-            Connection con = DBconnection.getConnection();
-            String sql;
-            java.sql.PreparedStatement pst;
-
-            if (searchTerm == null || searchTerm.isEmpty()) {
-                sql = "SELECT * FROM appointments";
-                pst = con.prepareStatement(sql);
-            } else {
-                sql = "SELECT * FROM appointments WHERE patient_name LIKE ?";
-                pst = con.prepareStatement(sql);
-                pst.setString(1, "%" + searchTerm + "%");
-            }
+            java.sql.Connection con = util.DBconnection.getConnection();
+            
+            String sql = "SELECT * FROM appointments WHERE patient_name LIKE ? OR CAST(id AS CHAR) LIKE ? OR contact_number LIKE ?";
+            java.sql.PreparedStatement pst = con.prepareStatement(sql);
+            
+            String searchPattern = "%" + searchTerm.trim() + "%";
+            pst.setString(1, searchPattern);
+            pst.setString(2, searchPattern);
+            pst.setString(3, searchPattern);
             
             rs = pst.executeQuery();
-            
         } catch (Exception e) {
             System.out.println("Error searching appointments: " + e);
         }
         return rs;
-        
     }
     
     public java.sql.ResultSet getAppointmentById(int id) {

@@ -32,14 +32,14 @@ public class BillingController {
                 // 3. Calculate Cost
                 double cost = 0.0;
                 switch (treatment) {
-                    case "Cleaning": cost = 50.00; break;
-                    case "Whitening": cost = 120.00; break;
-                    case "Filling": cost = 150.00; break;
-                    case "Root Canal": cost = 500.00; break;
-                    case "Extraction": cost = 200.00; break;
+                    case "Cleaning": cost = 2500.00; break;
+                    case "Whitening": cost = 4000.00; break;
+                    case "Filling": cost = 4500.00; break;
+                    case "Root Canal": cost = 3200.00; break;
+                    case "Extraction": cost = 4200.00; break;
                     default: cost = 0.0; break;
                 }
-                double total = cost + 50.00;
+                double total = cost + 500.00;
 
 
                 String htmlContent = "<html><head><title>Receipt - Sunrise Dental</title>"
@@ -62,9 +62,9 @@ public class BillingController {
                         + "<p><strong>Attending Dentist:</strong> " + dentist + "</p>"
                         + "<table>"
                         + "<tr><th>Description</th><th>Amount</th></tr>"
-                        + "<tr><td>" + treatment + " Treatment</td><td>$" + String.format("%.2f", cost) + "</td></tr>"
-                        + "<tr><td>Registration Fee</td><td>$50.00</td></tr>"
-                        + "<tr class='total'><td>Total Amount Due</td><td>$" + String.format("%.2f", total) + "</td></tr>"
+                        + "<tr><td>" + treatment + " Treatment</td><td>Rs." + String.format("%.2f", cost) + "</td></tr>"
+                        + "<tr><td>Registration Fee</td><td>Rs.500.00</td></tr>"
+                        + "<tr class='total'><td>Total Amount Due</td><td> LKR" + String.format("%.2f", total) + "</td></tr>"
                         + "</table>"
                         + "<div class='footer'>Thank you for your visit!<br>Please present this invoice at the front desk.</div>"
                         + "<button class='download-btn no-print' onclick='window.print()'>Download PDF / Print</button>"
